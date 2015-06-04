@@ -1,4 +1,4 @@
-Primera clase
+##Primera clase
 **Métodos Computacionales** vacaciones 2015
 
 Herramientas del curso:
@@ -8,7 +8,7 @@ Herramientas del curso:
 + C
 + Python
 
-Semana 2 
+##Semana 2 
 
 + ^(.... ) Expresión regular que representa cuatro caracteres al inicio de una línea con un espacio a continuación.
 
