@@ -10,7 +10,7 @@ Herramientas del curso:
 
 ##Semana 2 
 
-+ '^(.... )'' Expresión regular que representa cuatro caracteres al inicio de una línea con un espacio a continuación.
++ '^(.... )' Expresión regular que representa cuatro caracteres al inicio de una línea con un espacio a continuación.
 
 gnuplot
 
