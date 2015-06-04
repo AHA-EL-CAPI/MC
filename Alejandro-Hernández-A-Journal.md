@@ -10,7 +10,7 @@ Herramientas del curso:
 
 ##Semana 2 
 
-+ ^(.... ) Expresión regular que representa cuatro caracteres al inicio de una línea con un espacio a continuación.
++ '^(.... )'' Expresión regular que representa cuatro caracteres al inicio de una línea con un espacio a continuación.
 
 gnuplot
 
@@ -24,9 +24,9 @@ set datafile separator ","
 
 plot "$1" using $2:$3
 
-+Este código corresponde al programa en bash que recibe un archivo y dos de sus columnas y hace una gráfica paramétrica de las columnas. Fue probado con el archivo de las lunas de Júpiter.
++ Este código corresponde al programa en bash que recibe un archivo y dos de sus columnas y hace una gráfica paramétrica de las columnas. Fue probado con el archivo de las lunas de Júpiter.
 
-+Para separar el archivo de dígitos de Pi seleccionamos lo siguiente y lo reemplazamos por nada:
++ Para separar el archivo de dígitos de Pi seleccionamos lo siguiente y lo reemplazamos por nada:
 ```
 \<.*\> :# Quitamos toda la información extra que viene de la página.
 
