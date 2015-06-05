@@ -1,0 +1,20 @@
+# -*- coding: utf-8 -*-
+# <nbformat>3.0</nbformat>
+
+# <codecell>
+
+N1 = float(raw_input("#1 = "))
+N2 = float(raw_input("#2 = "))
+print "#1 + #2 =", N1 + N2
+print "#1 - #2 =", N1-N2
+print "#1 * #2 =", N1*N2
+
+# <codecell>
+
+print N1 + N2
+print N1-N2
+print N1*N2
+
+# <codecell>
+
+

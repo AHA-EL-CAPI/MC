@@ -102,3 +102,9 @@ Finalmente, se trabajó un ejemplo acerca de cómo hacer regresiones con gnuplot
 y(x)=m*x+b
 fit y(x) 'galaxies.csv' using 2:3 via m,b
 ```
+
+# Clase del 5 de Junio de 2015
+
+## Introducción a Python
+
+En clase se vio una herramienta llamada Make que 
