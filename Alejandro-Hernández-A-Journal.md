@@ -103,8 +103,8 @@ y(x)=m*x+b
 fit y(x) 'galaxies.csv' using 2:3 via m,b
 ```
 
-# Clase del 5 de Junio de 2015
+# Clase del 9 de Junio de 2015
 
-## Introducción a Python
+## Make
 
-En clase se vio una herramienta llamada Make que 
+En clase se vio una herramienta llamada Make que sirve para actualizar conjuntos de archivos que dependen, a su vez de otros archivos.  
