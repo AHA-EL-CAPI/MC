@@ -107,4 +107,9 @@ fit y(x) 'galaxies.csv' using 2:3 via m,b
 
 ## Make
 
-En clase se vio una herramienta llamada Make que sirve para actualizar conjuntos de archivos que dependen, a su vez de otros archivos.  
+En clase se vio una herramienta llamada Make que sirve para actualizar conjuntos de archivos que dependen, a su vez, de otros archivos. Es importante notar que los conjuntos de archivos pueden pensarse como grafos, cuyos nodos son diversas tareas a realizar, de tal forma que hay una jerarquía de tareas en las que unas se realizan antes que otras, recompilando en cada ocasión los archivos usados en el programa.
+
+### Proyecto
+Considerando lo visto las primeras dos semanas del curso, me gustaría tomar un determinado problema en física cuya solución requiera métodos numéricos, solucionarlo y analizar gráficamente dichas soluciones con las herramientas aprendidas. Problemas interesantes en este sentido se pueden encontrar en el campo de la materia condensada, cuando se tienen en cuenta procesos no-Markovianos, algo que aún no está muy estudiado. 
+
+Cabe mencionar que quiero trabajar conjuntamente en el proyecto final con Nicolás A. Morales D.
