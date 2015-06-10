@@ -113,3 +113,39 @@ En clase se vio una herramienta llamada Make que sirve para actualizar conjuntos
 Considerando lo visto las primeras dos semanas del curso, me gustaría tomar un determinado problema en física cuya solución requiera métodos numéricos, solucionarlo y analizar gráficamente dichas soluciones con las herramientas aprendidas. Problemas interesantes en este sentido se pueden encontrar en el campo de la materia condensada, cuando se tienen en cuenta procesos no-Markovianos, algo que aún no está muy estudiado. 
 
 Cabe mencionar que quiero trabajar conjuntamente en el proyecto final con Nicolás A. Morales D.
+
+# Clase del 10 de Junio de 2015
+
+## Python
+
+En clase se vio cómo trabajar con múltiples gráficas en python usando el comando `subplot`. EL código de python usado para hacer las gráficas solicitadas fue el siguiente:
+
+```python
+# -*- coding: utf-8 -*-
+# <nbformat>3.0</nbformat>
+
+# <codecell>
+
+%pylab inline
+
+# <codecell>
+
+a = [1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4]
+b = [1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4] 
+delta = pi/2
+t = linspace(-pi,pi,300)
+figure(figsize=(20,20))
+for i in range(0,16):
+ x = sin(a[i]*t + delta)
+ y = sin(b[i] * t)
+ subplot(4,4,i+1)
+ axis('off')
+ axis('equal')
+ plot(x,y)
+
+savefig('foo.png', bbox_inches='tight')
+show()
+
+# <codecell>
+```
+![Lissajouz figures](foo.png)
