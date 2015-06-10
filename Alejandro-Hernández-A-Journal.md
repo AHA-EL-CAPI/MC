@@ -148,4 +148,4 @@ show()
 
 # <codecell>
 ```
-![Lissajouz figures](foo.png)
+![Lissajouz figures](https://github.com/AHA-EL-CAPI/MC/blob/master/foo.png)
