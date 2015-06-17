@@ -149,3 +149,5 @@ show()
 # <codecell>
 ```
 ![Lissajous figures](https://github.com/AHA-EL-CAPI/MC/blob/master/HandsOn/HandsOn5/Lissajous.png)
+
+Alejo suba el resto de la bitacora
