@@ -9,7 +9,7 @@ Haga una copia de este archivo en su repositorio de GitHub en la carpeta /MC/Tal
 
 1. Del segundo capítulo del [libro de Scherer](http://link.springer.com.ezproxy.uniandes.edu.co:8080/book/10.1007\%2F978-3-642-13990-1) resuelva los literales c y d del problema 2.1.
 
-#Solución punto c
+#PUNTO C
 
 Interpolación de Lagrange para el seno con los puntos especificados en el libro.
 ```python
@@ -67,7 +67,7 @@ ax.plot(ixv,po(ixv),label=u"Interpolation")
 plt.legend(loc='best')
 plt.show(fig)
 ```
-#Solución punto d
+#PUNTO D
 
 Interpolación de Lagrange para el pulso y el step
 
@@ -195,7 +195,7 @@ plt.show()
 |4.3105185461|-0.0681282942773|
 |4.45641816306|-0.0704087548339|
 
-#Solución
+#SOL
 
 Primero hacemos la interpolación y la mostramos.
 ```python
@@ -221,4 +221,6 @@ print '|'+'x'+'               '     +'|'+ 'y'+'          '+'|'
 for i in range (24):
     print '|'+str(xvals[i])+'|'+str(sale_interpol_cubic(xvals)[i])+'|'
 ```
+
+##OJO: HECHO CON LA AYUDA DEL ESTUDIANTE NICOLÁS MORALES
 **Al terminar la clase ejecute `lottery.sh` para saber si su taller va a ser revisado.**
