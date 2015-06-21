@@ -89,6 +89,7 @@ EL código utilizado fue el siguiente:
 git tag -a v0.33 7e0f4604
 
 git push origin v0.33 
+```
 
 Donde `7e0f4604` identifica el commit que quiero etiquetar.
 
