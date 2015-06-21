@@ -81,5 +81,16 @@ plt.show(
 
 1. Ponga una etiqueta al actual commit de su repositorio llamada *v0.33* y haga un push de ella a GitHub.
 
+## Solución:
+
+EL código utilizado fue el siguiente:
+
+```
+git tag -a v0.33 7e0f4604
+
+git push origin v0.33 
+
+Donde `7e0f4604` identifica el commit que quiero etiquetar.
+
 
 **Al terminar la clase ejecute `lottery.sh` para saber si su taller va a ser revisado.**
