@@ -150,4 +150,113 @@ show()
 ```
 ![Lissajous figures](https://github.com/AHA-EL-CAPI/MC/blob/master/HandsOn/HandsOn5/Lissajous.png)
 
-Alejo suba el resto de la bitacora
+# Clase del 16 de Junio de 2015
+
+## Interpolación
+
+Las siguientes líneas de código corresponden a la interpolación del campo magnético de un dipolo.
+
+```python
+%pylab inline
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import interpolate
+
+x = np.array([2.3,2.8,3.2,3.7,4.3])
+b = np.array([34745.,19689.,12594.,7982.,5822.])
+
+from scipy.optimize import curve_fit
+
+def func(x,m):
+    return 2*m/(4*np.pi*(x**3))
+
+nonlfit =curve_fit(func, x,b)
+plt.figure(figsize=(10,5))
+plt.ylabel(r'$P(\theta)$',fontsize=15)
+plt.xlabel(r'$\theta$',fontsize=15)
+th=np.linspace(2.3,4.3,100)
+plt.plot(x,b,'or')
+plt.plot(th,func(th,nonlfit[0][0]),"g")
+plt.title(u'el papi',fontsize=15)
+plt.show()
+print 
+Ahora imprimimos la tabla con los 100 valores
+
+for i in range (100):
+    print th[i],func(th,nonlfit[0][0])[i]
+```
+
+# Clase del 23 de Junio de 2015
+
+## Tranformada de Fourier
+
+Teniendo en cuenta los conocimientos acerca de la tranformada de Fourier y la forma de implementarla en python, el código para solucionar el hands on de este día fue el siguiente:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.fftpack import ifft, fft, fftfreq
+%matplotlib inline
+
+# Importo el archivo directamente desde la url.
+file_1 = np.genfromtxt('https://raw.githubusercontent.com/ComputoCienciasUniandes/MetodosComputacionalesDatos/master/hands_on/solar/monthrg.dat')
+year_1 = file_1[:,0] 
+month_1 = file_1[:,1]
+day_1 = file_1[:,2]
+mean_1 = file_1[:,3]
+
+# Nos importan solo los que tengan días distintos de cero.
+year = []
+month = []
+mean = []
+for i in range(len(day_1)):
+    if(day_1[i]!=0):
+        year.append(year_1[i])
+        month.append(month_1[i])
+        mean.append(mean_1[i])
+
+# Queremos tener el año como decimal, así que incluyo el decimal del mes correspondiente en cada uno de los datos.
+year = [year[i] + month[i]/12. for i in range(len(year))]
+
+# Cálculo de la transformada de Fourier
+mean_fou = fft(mean)
+# Se define el array de frecuencias que tiene en cuenta que el espaciamiento es años, de tal forma que se obtienen
+# frequencias con unidades ciclos/año.
+frequency = fftfreq(len(year), 1./12.)
+
+# Gráfica de los datos de la transformada
+plt.figure(figsize=(15,10))
+plt.plot(frequency,np.abs(mean_fou),'o')
+# Se observó que la información relevante estaba alrededor de cero, así que nos limitamos 
+# a un intervalo pequeño alrededor de cero.
+plt.xlim(-0.25,0.25)
+plt.show()
+
+# Filtrado de las frecuencias
+mean_fou[np.abs(frequency) >= 0.2 ] = 0.
+
+# Gráfica de la información para ver el cambio con el filtrado.
+plt.figure(figsize=(15,10))
+plt.plot(frequency,np.abs(mean_fou),'o')
+plt.xlim(-0.25,0.25)
+plt.show()
+
+# Transformada inversa de los datos.
+filter_mean = ifft(mean_fou)
+
+# Gráifica de los datos iniciales y de los datos filtrados en el intervalo de interés.
+plt.figure(figsize=(15,10))
+plt.plot(year[2988:],np.abs(filter_mean[2988:]),'r',linewidth=3.)
+plt.plot(year[2988:],mean[2988:],'c',alpha=0.5)
+plt.xlabel(u't/año')
+plt.ylabel(u'manchas solares/mes')
+plt.show()
+
+fcut = 0.05
+wanted_frequency = frequency[frequency>=fcut]
+wanted_mean = np.abs(mean_fou[frequency>=fcut])
+max_index = np.argmax(wanted_mean)
+print "El período del ciclo solar es: " + str(1/wanted_frequency[max_index]) + " años."
+
+```
+
