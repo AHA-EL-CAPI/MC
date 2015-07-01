@@ -296,3 +296,15 @@ simplify(integrate(  fn3*((t-tn)*(t-tn1)*(t-tn2)/(tn3-tn)/(tn3-tn1)/(tn3-tn2))
                    + fn1*((t-tn)*(t-tn2)*(t-tn3)/(tn1-tn)/(tn1-tn2)/(tn1-tn3)) 
                    + fn*((t-tn1)*(t-tn2)*(t-tn3)/(tn-tn1)/(tn-tn2)/(tn-tn3)),(t,tn,tn+h)))
 ```
+
+## Proyecto
+
+Me parece muy interesante, como ya había mencionado previamente, utilizar lo aprendido en clase para resolver sistemas de ecuaciones que no tienen solución analítica. La razón por la que me gustaría hacerlo es que hace un tiempo desarrollé un proyecto con un profesor y un compañero que consistía en una generalización de la ecuación de Schrodinger-Langevin.
+
+Esta ecuación es característica de los sistemas clásicos disipativos y cuánticos abiertos y surgió originalmente para estudiar el movimiento Browniano. En general, cuando se utiliza la aproximación de Caldeira-Legget para estudiar determinados sistemas y se obtiene la ecuación de Schrodinger-Langevin, esta no tiene solución analítica por lo que las herramientas del curso serían útiles.
+
+La generalización en la que trabajamos considera un acople no lineal en general entre el sistema y el entorno que se puede aplicar a casos concretos como las junturas Josephson o a determinadas moléculas quirales cuya energía viene dada por un doble pozo no simétrico, además se pueden considerar los casos cuando el sistema es Markoviano o no-Markoviano y a partir de las soluciones de las ecuaciones de movimiento obtenidas analizar las diferencias entre ambos casos.
+
+Si efectivamente se pudiese desarrollar este proyecto sería muy interesante para mí ver si los resultados obtenidos teóricamente en efecto concuerdan con las simulaciones computacionales. En todo caso para el tema del proyecto me gustaría tomar algún problema físico que no sea analíticamente soluble y resolverlo numéricamente para analizar las soluciones obtenidas. Menciono en particular el efecto Josephson pues es característico de la mecánica cuántica pero se presenta a escala macroscópica, lo cual rompe el paradigma de que todos los fenómenos cuánticos se dan a escalas muy pequeñas.
+
+## Cabe aclarar que quisiera trabajar conjuntamente con el estudiante Nicolás A. Morales D.
