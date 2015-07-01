@@ -177,7 +177,7 @@ plt.xlabel(r'$\theta$',fontsize=15)
 th=np.linspace(2.3,4.3,100)
 plt.plot(x,b,'or')
 plt.plot(th,func(th,nonlfit[0][0]),"g")
-plt.title(u'el papi',fontsize=15)
+plt.title(u'Momento magnético de un dipolo',fontsize=15)
 plt.show()
 print 
 Ahora imprimimos la tabla con los 100 valores
