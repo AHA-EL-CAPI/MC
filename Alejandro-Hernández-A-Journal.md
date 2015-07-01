@@ -260,3 +260,39 @@ print "El período del ciclo solar es: " + str(1/wanted_frequency[max_index]) + 
 
 ```
 
+# Clase del 1 de Julio de 2015
+
+## Cálculo simbólico
+
+En clase aprendimos a hacer cálculos con símbolos en python y lo usamos para demostrar las ecuaciones de los métodos de Adams-Bashforth de orden 2, 3 y 4. EL resultado se muestra a continuación:
+
+```python
+from sympy import *
+init_printing(use_unicode = True)
+
+# Definición de los símbolos a utilizar para orden 2.
+t,fn,fn1,h,tn,tn1 = symbols('t fn fn1 h tn tn1')
+
+# Integración y simplificación.
+tn1 = tn -h
+simplify(integrate(fn1*((t-tn)/(tn1-tn)) + fn*((t-tn1)/(tn-tn1)),(t,tn,tn+h)))
+
+# Definición de los símbolos a utilizar para orden 3.
+t,fn,fn1,fn2,h,tn,tn1,tn2 = symbols('t fn fn1 fn2 h tn tn1 tn2')
+
+# Integración y simplificación simbólica.
+tn1 = tn - h
+tn2 = tn - 2*h
+simplify(integrate(fn2*((t-tn1)*(t-tn)/(tn2-tn)/(tn2-tn1)) + fn1*((t-tn)*(t-tn2)/(tn1-tn)/(tn1-tn2)) + fn*((t-tn1)*(t-tn2)/(tn-tn1)/(tn-tn2)),(t,tn,tn+h)))
+
+# Definición de los símbolos a utilizar para orden 3.
+t,fn,fn1,fn2,fn3,h,tn,tn1,tn2,tn3 = symbols('t fn fn1 fn2 fn3 h tn tn1 tn2 tn3')
+
+tn1 = tn - h
+tn2 = tn - 2*h
+tn3 = tn - 3*h
+simplify(integrate(  fn3*((t-tn)*(t-tn1)*(t-tn2)/(tn3-tn)/(tn3-tn1)/(tn3-tn2)) 
+                   + fn2*((t-tn)*(t-tn1)*(t-tn3)/(tn2-tn)/(tn2-tn1)/(tn2-tn3)) 
+                   + fn1*((t-tn)*(t-tn2)*(t-tn3)/(tn1-tn)/(tn1-tn2)/(tn1-tn3)) 
+                   + fn*((t-tn1)*(t-tn2)*(t-tn3)/(tn-tn1)/(tn-tn2)/(tn-tn3)),(t,tn,tn+h)))
+```
