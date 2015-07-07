@@ -308,3 +308,74 @@ La generalización en la que trabajamos considera un acople no lineal en general
 Si efectivamente se pudiese desarrollar este proyecto sería muy interesante para mí ver si los resultados obtenidos teóricamente en efecto concuerdan con las simulaciones computacionales. En todo caso para el tema del proyecto me gustaría tomar algún problema físico que no sea analíticamente soluble y resolverlo numéricamente para analizar las soluciones obtenidas. Menciono en particular el efecto Josephson pues es característico de la mecánica cuántica pero se presenta a escala macroscópica, lo cual rompe el paradigma de que todos los fenómenos cuánticos se dan a escalas muy pequeñas.
 
 ## Cabe aclarar que quisiera trabajar conjuntamente con el estudiante Nicolás A. Morales D.
+
+# Clase del 7 de Julio de 2015
+
+## Cuerda con un extremo fijo y un extremo libre.
+
+Partiendo del ejemplo mostrado en `11-PDE.ipynb` para una cuerda con sus extremos fijos, la modificación del mismo es la siguiente:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+tmin=0
+tmax=.003105882
+xmin=-0.33  # en metros
+xmax=0.33   # en metros
+Nt=1000
+Nl=100
+dt=(tmax-tmin)/Nt
+dx=(xmax-xmin)/Nl
+v=425. # m/s
+r=v*dt/dx
+
+xcoords=np.linspace(xmin,xmax,Nl)
+tcoords=np.linspace(tmin,tmax,Nt)
+chord=np.zeros((Nt,Nl))
+# fijar la condición inicial
+std=0.05
+chord[0]=0.01*np.exp(-xcoords**2/(2*std**2))
+chord[0,0]=0
+chord[0,-1]=0
+chord[1]=chord[0]+r**2/2.*(np.roll(chord[0],1)+np.roll(chord[0],-1)-2*chord[0])
+plt.figure(figsize=(15,8))
+plt.plot(xcoords,chord[0])
+plt.show()
+for i in range(2,Nt):
+    ppchord=chord[i-2]
+    pchord=chord[i-1]
+    chord[i]=2*(1-r**2)*pchord-ppchord+r**2*(np.roll(pchord,1)+np.roll(pchord,-1))
+    chord[i,0]=0
+    chord[i,-1]=chord[i,-2] # Partiendo del ejemplo visto en clase, lo único que se modificó es que chord[i,-1] ya
+                            # ya nos es cero, sino que refleja la condición de un extremo libre, a saber,
+                            # dy/dx = 0 en el extremo derecho de la cuerda considerando y como la función de onda.
+                            # Dicha condición traducida en forma discreta es (y(L,j) - y(L-1,j))/Deltax = 0, que
+                            # finalmente es y(L,j) = y(L-1,j).
+plt.figure(figsize=(15,15))
+plt.pcolor(xcoords,tcoords,chord,cmap='gist_heat')
+plt.xlim(xmin,xmax)
+plt.ylim(tmin,tmax)
+plt.show()
+
+%matplotlib
+from matplotlib import animation
+
+fig=plt.figure(figsize=(20,10))
+ax = fig.add_subplot(111, autoscale_on=False)
+chordplot,=ax.plot([],[],"o",ms=2)
+plt.xlim(xmin,xmax)
+plt.ylim(-0.01,0.01)
+
+time_template = 't = %.2f'
+time_text = ax.text(0.5, 0.8, 'nada',transform=ax.transAxes)
+
+def animate(i):
+    chordplot.set_data(xcoords,chord[3*i])
+    time_text.set_text(time_template%(i*dt*1000)+"ms")
+    return chordplot,time_text
+
+animacion = animation.FuncAnimation(fig, animate, np.arange(1,len(chord)/3),interval=1, blit=False)
+plt.show()
+```
