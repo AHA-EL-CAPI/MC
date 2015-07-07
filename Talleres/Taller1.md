@@ -11,15 +11,19 @@ Haga una copia de este archivo en su GitHub en la carpeta /MC/Talleres/. No olvi
 ##Subsección1
 ##Subsección2
 
-1. Lista numerada.
-2. Lista numerada.
-3. Lista numerada.
-4. Lista numerada.
+La lista numerada:
 
-+ Lista sin numerar.
-+ Lista sin numerar.
-+ Lista sin numerar.
-+ Lista sin numerar.
+1. Elemento 1.
+2. Elemento 2.
+3. Elemento 3.
+4. Elemento 4.
+
+La lista sin numerar:
+
++ Elemento 1.
++ Elemento 2.
++ Elemento 3.
++ Elemento 4.
 
 Link [Uniandes](http://www.uniandes.edu.co)
 
