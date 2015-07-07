@@ -7,9 +7,9 @@ Haga una copia de este archivo en su GitHub en la carpeta /MC/Talleres/. No olvi
 
 **Solución**
 
-#Sección
-##Subsección1
-##Subsección2
+# Esta es la sección.
+## Esta es la subsección 1.
+## Esta es la subsección 2.
 
 La lista numerada:
 
@@ -25,20 +25,21 @@ La lista sin numerar:
 + Elemento 3.
 + Elemento 4.
 
-Link [Uniandes](http://www.uniandes.edu.co)
+Este es el link de [Uniandes](http://www.uniandes.edu.co).
 
-Código inline
+El código inline:
 <dl>
   <dt>Trozo de código</dt>
   <dd>inline.</dd>
 </dl> 
 
-Código en bloque
+El código en bloque:
 
-> Este es un trozo de código 
-> en bloque
+> Este es un ejemplo de 
+> un trozo de códigoen bloque.
 
 2. Escriba un script de `bash` que produzca un archivo csv con los primeros mil números enteros junto con sus cuadrados. Para hacer la aritmética utilice [The Double-Parentheses Construct](http://www.tldp.org/LDP/abs/html/dblparens.html).
+
 **Solución**
 ```
 #!/bin/bash
@@ -47,34 +48,56 @@ do
 echo $i, $(($i*$i)) >> "numeros.csv"
 done
 ```
+
 3. Escriba el código a usar en `awk` para sumar las columnas 1 y 2 de un archivo csv. Use el resultado del anterior ejercicio para hacer pruebas.
+
 **Solución**
+```
 awk -F"," '{print $1+$2}' archivo.csv
+```
+
 4. Escriba un script de `bash` que reciba dos números naturales y entregue de regreso su suma.
+
 **Solución**
 ```
 #!/bin/bash
 echo $(($1+$2))
 ```
+
 7. Escriba un reloj en `bash` que utilice `date`, `figlet`, `sleep`, `while` y `clear`.
+
 **Solución** 
+```
+#!/bin/bash
+
+while true;
+do
+clear
+date | sed 's/COT .*//g' | figlet
+sleep 1
+done
+```
 
 8. Escriba un script de `bash` que descargue los primeros 150 comics de [xkcd](http://xkcd.com/). Puede hacerse utilizando `for`, `curl`, `grep`, `sed` y `wget`. Para hacerlo debe identificar y aprovechar el patrón en las url de los archivos a descargar.
-**Solución**
 
 9. Usando `ssh` abrir una cuenta en [sdf.org](http://www.sdf.org) y jugar `moon` o `tetris` por unos minutos.
-+ Escriba código en `bash` que usando `sed` tome el archivo [hyg.csv](https://raw.githubusercontent.com/ComputoCienciasUniandes/HerramientasComputacionales/master/Lectures/2015-10/LaTeX/hipparcoscat/hyg.csv) y produzca un archivo llamado hyg.tsv con todas las comas reemplazadas por `tab`.
+
+10. Escriba código en `bash` que usando `sed` tome el archivo [hyg.csv](https://raw.githubusercontent.com/ComputoCienciasUniandes/HerramientasComputacionales/master/Lectures/2015-10/LaTeX/hipparcoscat/hyg.csv) y produzca un archivo llamado hyg.tsv con todas las comas reemplazadas por `tab`.
+
 **Solución**
 ```
 #!/bin/bash
 sed 's/,/\t/g' hyg.csv >> hyg.tsv
 ```
-10. El archivo [monthrg.dat](https://raw.githubusercontent.com/ComputoCienciasUniandes/MetodosComputacionalesDatos/master/hands_on/solar/monthrg.dat) contiene 5 columnas descritas por el archivo [README](https://github.com/ComputoCienciasUniandes/MetodosComputacionalesDatos/blob/master/hands_on/solar/README). Escriba un script que imprima las siguientes tres cantidades: a) el número de manchas solares promedio en el mes de su nacimiento, b) la cantidad de meses entre 1900 y 1950 que tuvieron más de 30 manchas solares en promedio, y c) el año y el mes que más manchas solares promedio ha tenido en toda la historia. Para lo anterior utilice [awk](http://www.staff.science.uu.nl/~oostr102/docs/nawk/nawkA4.pdf).
-**Solución**
-11. Construya una expresión en `sed` que sirva para convertir un archivo de datos donde el separador es  `,` en otro donde el separador sea `tab`. 
-**Solución**
-sed 's/,/\t/g'
 
+11. El archivo [monthrg.dat](https://raw.githubusercontent.com/ComputoCienciasUniandes/MetodosComputacionalesDatos/master/hands_on/solar/monthrg.dat) contiene 5 columnas descritas por el archivo [README](https://github.com/ComputoCienciasUniandes/MetodosComputacionalesDatos/blob/master/hands_on/solar/README). Escriba un script que imprima las siguientes tres cantidades: a) el número de manchas solares promedio en el mes de su nacimiento, b) la cantidad de meses entre 1900 y 1950 que tuvieron más de 30 manchas solares en promedio, y c) el año y el mes que más manchas solares promedio ha tenido en toda la historia. Para lo anterior utilice [awk](http://www.staff.science.uu.nl/~oostr102/docs/nawk/nawkA4.pdf).
+
+
+12. Construya una expresión en `sed` que sirva para convertir un archivo de datos donde el separador es  `,` en otro donde el separador sea `tab`. 
+**Solución**
+```
+sed 's/,/\t/g'
+```
 
 # Varios
 
