@@ -199,15 +199,7 @@ for i in range(2,Nt):
     drum_5[i]=2*(1.-2.*r**2)*pdrum_5-ppdrum_5+r**2*(np.roll(pdrum_5,1,axis=1)+np.roll(pdrum_5,-1,axis=1)
                                               +np.roll(pdrum_5,1,axis=0)+np.roll(pdrum_5,-1,axis=0))
 
-# Animación
-%matplotlib
-
-fig = plt.figure(figsize=(15,10))
-
-#plt.hold(True)
 # Coordenadas de un areglo más grande que permie mostrar todas las caras del cubo simultáneamente.
-x_all = np.linspace(-2*L,2*L,4*Nl)
-y_all = np.linspace(-3*L/2,3*L/2,3*Nl)
 
 drum_all = np.zeros((Nt,3*Nl,4*Nl)) 
 
@@ -220,24 +212,24 @@ for i in range(len(drum_all)):
     drum_all[i,2*Nl:3*Nl,Nl:2*Nl] = drum_4[i,1:-1,1:-1]
     drum_all[i,0:Nl,Nl:2*Nl] = drum_5[i,1:-1,1:-1]
 
-plt.pcolor(x_all,y_all,drum_all[0],cmap='gist_heat',vmin=0.,vmax=1.)
+# Animación
+%matplotlib
 
-plt.xlim(-2*L + dx,2*L - dx)
-plt.ylim(-3*L/2 + dy,3*L/2 -dy)
+fig = plt.figure(figsize=(15,10))
+plt.axis('off')
+im = plt.imshow(drum_all[0],cmap='gist_heat',vmin=0.,vmax=1.)
 
 def animate(i):  
-    plt.pcolor(x_all,y_all,drum_all[i],cmap='gist_heat',vmin=0.,vmax=1.)
-    plt.xlim(-2*L + dx,2*L - dx)
-    plt.ylim(-3*L/2 + dy,3*L/2 -dy)
+    im.set_array(drum_all[i])
+    return im,
     
-animacion = animation.FuncAnimation(fig, animate, np.arange(0,len(drum_1),10), interval=1, blit=False,repeat_delay=1000)
-
+animacion = animation.FuncAnimation(fig, animate, np.arange(0,len(drum_all),4), interval=10, blit=False
+                                    ,repeat_delay=1000)
+plt.tight_layout()
 #Writer = animation.writers['ffmpeg']
 #writer = Writer(fps=30, metadata=dict(artist='Me'), bitrate=1800)
 #animacion.save(u'Wave equation on cube.mp4',writer=writer)
-
 plt.show()
-#plt.hold(False)
 ```
 
   **Al terminar la clase del viernes ejecute `lottery.sh` para saber si su taller va a ser revisado.**
