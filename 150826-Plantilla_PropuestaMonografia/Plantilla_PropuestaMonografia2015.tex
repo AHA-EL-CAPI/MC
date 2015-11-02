@@ -1,0 +1,184 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage[spanish]{babel}
+%\usepackage[english]{babel}
+%\usepackage[latin5]{inputenc}
+\usepackage{hyperref}
+\usepackage[left=1.9cm,top=3cm,right=3cm,nohead,nofoot]{geometry}
+\usepackage{braket}
+\usepackage{datenumber}
+%\newdate{date}{10}{05}{2013}
+%\date{\displaydate{date}}
+
+\begin{document}
+
+\begin{center}
+\Huge
+Estudio de estrellas de Plank OJO
+
+\vspace{3mm}
+\Large Alejandro Hern\'andez A.
+
+\large
+201219580
+
+
+\vspace{2mm}
+\Large
+Director: Pedro Bargue\~no de Retes
+
+\normalsize
+\vspace{2mm}
+
+\today
+\end{center}
+
+
+\normalsize
+\section{Introducci\'on}
+
+%Introducción a la propuesta de Monografía. Debe incluir un breve resumen del estado del arte del problema a tratar. También deben aparecer citadas todas las referencias de la bibliografía (a menos de que se citen más adelante, en los objetivos o metodología, por ejemplo)
+
+El conocimiento actual del funcionamiento de la gravedad se basa en la Teor\'ia de la Relatividad de Einstein, cuya formulaci\'on matem\'atica m\'as general se muestra en la ec. \ref{campo},
+
+\begin{equation}
+\label{campo}
+R_{\mu \nu} - \frac{1}{2} R g_{\mu \nu} + \Lambda g_{\mu \nu} = 8 \pi T_{\mu \nu}
+\end{equation}
+
+donde $R_{\mu \nu}$ es el tensor de Ricci, $R$ es la curvatura escalar, $T_{\mu \nu}$ es el tensor energ\'ia-momento y $\Lambda$ es la constante gravitacional.\\
+
+Muchas de las soluciones de dichas ecuaciones presentan indeterminaciones en $r = 0$, tal y como ocurre con la m\'etrica de Schwarzschild mostrada en la ec. \ref{sch}, y las ''singularidades'' de la m\'etrica indican fallas en la teor\'ia puesto que no describe apropiadamente el comportamiento del campo gravitacional en las vecindades de dichos puntos.
+
+\begin{equation}
+\label{sch}
+ds^2 = -\left( 1 - \frac{2M}{r} \right) dt^2 + \left( 1 - \frac{2M}{r} \right)^{-1} dr^2 + r^2d\Omega ^2
+\end{equation}
+
+Una posible forma de solucionar estos problemas es considerar correcciones cu\'anticas a la teor\'ia gravitacional. La necesidad de una teoría cu\'antica de la gravedad se presenta por dos motivos: el hecho de que todas las fuerzas no gravitacionales son descritas por la mec\'anica cu\'antica, y la imposibilidad de acoplar	consistentemente un sistema cu\'antico y uno cl\'asico.OJO\\ 
+
+Uno de los modelos m\'as exitosos de gravedad cu\'antica se denomina \emph{Loop Quantum Gravity LQG} OJO, y al considerar las correcciones de este modelo para la m\'etrica \ref{sch}, se obtiene una soluci\'on regular denominada m\'etrica de Hyward modificada dada por \ref{reg-sch} OJO
+
+\begin{equation}
+\label{reg-sch}
+ds^2 = -G(r)F(r) dt^2 + \frac{1}{F(r)} dr^2 + r^2d\Omega ^2
+\end{equation}
+
+donde
+
+\begin{equation}
+\label{reg-f}
+F(r) = 1 - \frac{Mr^2}{r^3 + 2ML^2}
+\end{equation}
+
+\begin{equation}
+\label{reg-g}
+G(r) = 1 - \frac{\beta M \alpha}{\alpha r^3 + \beta M}
+\end{equation}
+
+con $\alpha$ y $\beta$ parámetros del sistema. Esta m\'etrica representa lo que usualmente es referido en la literatura como \emph{Estrellas de Plank} OJO y  satisface las siguientes propiedades:
+
+\begin{itemize}
+\item $g_{00} = 1 - \frac{2M}{r}$ para $r \rightarrow \infty$, es decir, la m\'etrica es asint\'oticamente Schwarzschild.
+
+\item Incluye correcciones de \emph{LQG} al potencial Newtoniano dadas por 
+
+\begin{equation}
+\label{new}
+\Phi (r) = -\frac{M}{r} \left( 1 + \beta \frac{l_{planck}^2}{r^2} \right) + o(r^{-4})
+\end{equation}
+
+\item Permite una dilatación temporal finita entre $r = 0$ y $r = \infty$.
+
+\item $g_{00} = 1 - \frac{r^2}{L^2} + o(r^3)$, es decir, es de Sitter para $r \rightarrow 0$ OJO.
+
+\end{itemize}
+
+
+Las motivaciones f\'isicas para proponer la m\'etrica \ref{reg-sch}, adem\'as de las consecuencias y propiedades de la misma son de gran inter\'es te\'orico y ejemplifican una forma particular de incluir efectos cu\'anticos en la teor\'ia de la relatividad general para regularizar una soluci\'on de las ecuaciones de campo de Einstein. OJO  
+\section{Objetivo General}
+
+%Objetivo general del trabajo. Empieza con un verbo en infinitivo.
+
+Estudiar en detalle las estrellas de Planck y comprender las correcciones cu\'anticas de \emph{LQG} que motivan la introducci\'on de la m\'etrica \ref{reg-sch}.
+
+
+\section{Objetivos Específicos}
+
+%Objetivos específicos del trabajo. Empiezan con un verbo en infinitivo.
+
+\begin{itemize}
+	\item Entender y calcular OJO las correcciones cu\'anticas de \emph{LQG} del potencial Newtoniano $\Phi (r)$ mostradas en \ref{new}.
+	\item Entender la dilatación temporal finita entre $r = 0$ y $r = \infty$.
+	\item Comprender la importancia de la regularizaci\'on de la m\'etrica de Schwerzschild.
+	\item Entender las consecuencias de la regularización mencionada previamente y el mecanismo que impide la formaci\'on de la singularidad.
+\end{itemize}
+
+\section{Metodología}
+
+%Exponer DETALLADAMENTE la metodología que se usará en la Monografía. 
+
+%Monografía teórica o computacional: ¿Cómo se harán los cálculos teóricos? ¿Cómo se harán las simulaciones? ¿Qué requerimientos computacionales se necesitan? ¿Qué espacios físicos o virtuales se van a utilizar?
+
+%Monografía experimental: Recordar que para ser aprobada, los aparatos e insumos experimentales que se usarán en la Monografía deben estar previamente disponibles en la Universidad, o garantizar su disponibilidad para el tiempo en el que se realizará la misma. ¿Qué montajes experimentales se van a usar y que material se requiere? ¿En qué espacio físico se llevarán a cabo los experimentos? Si se usan aparatos externos, ¿qué permisos se necesitan? Si hay que realizar pagos a terceros, ¿cómo se financiará esto?
+
+Aqu\'i texto.
+
+\section{Cronograma}
+
+\begin{table}[htb]
+	\begin{tabular}{|c|cccccccccccccccc| }
+	\hline
+	Tareas $\backslash$ Semanas & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  \\
+	\hline
+	1 & X & X &   &   &   &   &   & X & X &   &   &   &   &   &   &   \\
+	2 &   & X & X &   & X & X & X &   &   & X & X & X &   & X & X &   \\
+	3 &   &   &   & X &   &   &   & X &   &   &   & X &   &   & X &   \\
+	4 & X & X & X & X & X & X & X & X & X & X &   &   &   &   &   &   \\
+	5 &   &   &   &   & X &   &   &   & X &   &   & X &   &   & X &   \\
+	\hline
+	\end{tabular}
+\end{table}
+\vspace{1mm}
+
+\begin{itemize}
+	\item Tarea 1: Descripci\'on de la tarea 1
+	\item Tarea 2: Descripci\'on de la tarea 2
+	\item Tarea 3: Descripci\'on de la tarea 3
+	\item ...
+\end{itemize}
+
+\section{Personas Conocedoras del Tema}
+
+%Nombres de por lo menos 3 profesores que conozcan del tema. Uno de ellos debe ser profesor de planta de la Universidad de los Andes.
+
+\begin{itemize}
+	\item Nombre de profesor 1 (Instituto o Universidad de afiliaci\'on 1)
+	\item Nombre de profesor 2 (Instituto o Universidad de afiliaci\'on 2)
+	\item Nombre de profesor 3 (Instituto o Universidad de afiliaci\'on 3)
+	\item ...
+\end{itemize}
+
+
+\begin{thebibliography}{10}
+
+\bibitem{Jerry} J. Banks. \textit{Discrete-Event System Simulation}. Fourth Edition. Prentice Hall International Series in Industrial and Systems Engineering, pg 86 - 116 y 219 - 235, (2005).
+
+\bibitem{Bronner} P. Bronner, A. Strunz, C. Silberhorn \& J.P. Meyn. European Journal of Physics, \textbf{30}, 1189-1200, (2009).
+
+\bibitem{LabInt} P. Díaz \& N. Barbosa: \textit{Obtención de números aleatorios}. Informe final del curso Laboratorio Intermedio. Universidad de Los Andes, Bogotá, Colombia, (2012).
+
+\bibitem{Stefannov} A. Stefanov , N. Gisin , O. Guinnard , L. Guinnard \& H. Zbinden. Journal of Modern Optics, \textbf{47}:4, 595-598, (2000).
+
+\end{thebibliography}
+
+\section*{Firma del Director}
+\vspace{1.5cm}
+
+\section*{Firma del Codirector	}
+
+
+
+\end{document} 
